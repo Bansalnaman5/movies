@@ -58,8 +58,14 @@ const initialSearchSate={
 export function search(state=initialSearchSate,action){
     switch(action.type){
         case SEARCH_RESULT:{
-            
+            return{
+                ...state,
+                result:action.movie
+            }
+
         }
+        default:
+            return state;
     }
 
     return state;

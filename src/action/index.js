@@ -46,10 +46,7 @@ export function handelMovieSearch(searchText){
         fetch(url).then(response=>response.json())
         .then((movie)=>{console.log(movie)
             // dispatch an action to add  movie to the store
-            // dispatch({
-            //     type:ADD_MOVIES,
-            //     movie:movie
-            // })
+            dispatch(addMovieSearchResult(movie));
             
         });
     }
@@ -59,4 +56,11 @@ export function handelMovieSearch(searchText){
     // }
 
     
+}
+
+export function addMovieSearchResult(movie){
+    return {
+        type:SEARCH_RESULT,
+        movie
+    }
 }

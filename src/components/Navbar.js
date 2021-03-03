@@ -19,6 +19,7 @@ class Navbar extends React.Component{
         this.props.dispatch(handelMovieSearch(searchText));
     }
     render(){
+        const {result}=this.props.search;
         return(
             <div className='nav'>
                 <div class="search-container">
