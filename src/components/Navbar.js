@@ -1,13 +1,29 @@
 import React from 'react';
-
+import {handelMovieSearch} from '../action';
 
 class Navbar extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            searchText:''
+        }
+    }
+    handelChange=(e)=>{
+        this.setState({
+            searchText:e.target.value
+        });
+
+    }
+    handelSearch=()=>{
+        const {searchText}=this.state;
+        this.props.dispatch(handelMovieSearch(searchText));
+    }
     render(){
         return(
             <div className='nav'>
                 <div class="search-container">
-                    <input/>
-                    <button className='search-btn' >Search</button>
+                    <input onChange={this.handelChange} />
+                    <button onClick={this.handelSearch} className='search-btn' >Search</button>
                 </div>
             </div>
         )
